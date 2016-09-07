@@ -1,33 +1,43 @@
 
 button, div, form, input {
-      margin:15px;  
-    }
-    #buttonsView{
-      background-color:grey;
-      color:black;
-      font-size:22px;
-      padding:5px;
-    }
-    #musician-input{
-      background-color:linen;
-      padding:5px;
-    }
-    form{
-      background-color:black;
-      color:red;
-      font-size: 18px;
-      padding:10px;
-    }
-    div{
-      background-color:#dddddd;
-      font-size:20px;
-      padding:10px;
-    }
-    input{
-      background-color:yellow;
-    }
-  .music{
-      background-color:white;
-      padding:5px;
-    }
-    
+  margin:15px;  
+}
+#buttonsView{
+  background-color:grey;
+  color:black;
+  font-size:22px;
+  padding:5px;
+}
+#musician-input{
+  background-color:linen;
+  padding:5px;
+}
+#musicianView{
+  display: inline-block;
+  width:100%;
+}
+#musicianView > p {
+  display:inline-block;
+}
+p{
+  width:100%;
+}
+form{
+  background-color:black;
+  color:red;
+  font-size: 18px;
+  padding:10px;
+}
+div{
+  background-color:#dddddd;
+  font-size:20px;
+  padding:10px;
+}
+input{
+  background-color:yellow;
+}
+.music{
+  background-color:white;
+  padding:5px;
+}
+  

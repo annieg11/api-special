@@ -15,28 +15,48 @@ function displayMusicianInfo() {
     // creating a for loop to get the results lenghth
     for (var i = 0; i < results.length; i++) {
       // making a div class image and storing it it the gifDiv variable.
-      var gifDiv = $('<div class="image">')
-      // 
+      var gifDiv = $('<div>');
+      gifDiv.addClass('images'); 
       var rate = results[i].rating;
       // To make a paragraph tag and put it in a variable named p
       // set the text of the paragraph to the rating of the image in results[i]
       var p = $('<p>').text("Rating: " + rate);
       //To make an image and reference it in a variable named personImage
       var personImage = $('<img>');
-      // set the image's src to results[i]'s fixed_height.url 
-      personImage.attr('src', results[i].images.fixed_height_still.url);
+      // set the image's src to results[i]'s fixed_height_still.url 
+      personImage.attr('src', results[i].images.fixed_width_still.url);
+      personImage.attr('data-still', results[i].images.fixed_width_still.url);
+      personImage.attr('data-animate', results[i].images.fixed_width.url);
+      personImage.attr('data-playing', 'false');
+      personImage.addClass('imageToChange');
       // append the p variable to the gifDiv variable
-      gifDiv.append(p)
+      // gifDiv.append(p);
        // append the personImage variable to the gifDiv variable
       gifDiv.append(personImage)
       // append the gifDiv variable to the element with an id of musicianView
       $('#musicianView').append(gifDiv);
     }
+
+      // on click function
   });
 }
-$( '#musicianView').click(function () {
-   $(this).replaceWith("src", results[i].images.fixed_height.url);
+
+$(document).on('click', '.imageToChange', function(){
+    // Vanilla JS way to get attributes
+    // console.log(this.getAttribute('data-playing'))
+    // jQuery way to get attributes
+    // console.log($(this).attr('data-playing'))
+    // for reasons unknown the jQuery method was not working so let's try vanilla js
+        
+    if(this.getAttribute('data-playing') == 'true'){
+      $(this).attr('src', $(this).attr('data-still'));          
+      $(this).attr('data-playing', 'false')
+    } else {
+      $(this).attr('src', $(this).attr('data-animate'));
+      $(this).attr('data-playing', 'true')
+    }
 });
+
 // Generic function for displaying musician's data 
 function renderButtons() {
   // Deletes the musicians prior to adding new musicians (this is necessary otherwise you will have repeat buttons)

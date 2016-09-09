@@ -25,39 +25,41 @@ function displayMusicianInfo() {
       var personImage = $('<img>');
       // set the image's src to results[i]'s fixed_height_still.url 
       personImage.attr('src', results[i].images.fixed_width_still.url);
+      // set the image's attribute to data-still to results[i]'s fixed_height_still.url 
       personImage.attr('data-still', results[i].images.fixed_width_still.url);
+      // set the image's attribute to data-animate to results[i]'s fixed_width.url 
       personImage.attr('data-animate', results[i].images.fixed_width.url);
+      // setting data playing to false.
       personImage.attr('data-playing', 'false');
+      // added a class imageToChange to image tag.
       personImage.addClass('imageToChange');
       // append the p variable to the gifDiv variable
-      // gifDiv.append(p);
+       gifDiv.append(p);
        // append the personImage variable to the gifDiv variable
       gifDiv.append(personImage)
       // append the gifDiv variable to the element with an id of musicianView
       $('#musicianView').append(gifDiv);
-    }
-
-      // on click function
+    }  
   });
 }
-
+// on click function, we are making our image still or animated.
 $(document).on('click', '.imageToChange', function(){
     // Vanilla JS way to get attributes
     // console.log(this.getAttribute('data-playing'))
     // jQuery way to get attributes
     // console.log($(this).attr('data-playing'))
-    // for reasons unknown the jQuery method was not working so let's try vanilla js
-        
+    // for reasons unknown the jQuery method was not working so let's try vanilla js    
     if(this.getAttribute('data-playing') == 'true'){
+      // if the imagetochange is still then data playing is is false
       $(this).attr('src', $(this).attr('data-still'));          
       $(this).attr('data-playing', 'false')
     } else {
+      // else if the imagetochange is animated then data playing is is true
       $(this).attr('src', $(this).attr('data-animate'));
       $(this).attr('data-playing', 'true')
     }
 });
-
-// Generic function for displaying musician's data 
+// Function for displaying musician's data 
 function renderButtons() {
   // Deletes the musicians prior to adding new musicians (this is necessary otherwise you will have repeat buttons)
   $('#buttonsView').empty();
@@ -84,7 +86,7 @@ $('#addMusician').on('click', function() {
   return false;
 });
 // ========================================================
-// Generic function for displaying the musicianInfo
+// Function for displaying the musicianInfo
 $(document).on('click', '.music', displayMusicianInfo);
 // ========================================================
 // This calls the renderButtons() function

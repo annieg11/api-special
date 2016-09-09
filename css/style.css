@@ -40,4 +40,11 @@ input{
   background-color:white;
   padding:5px;
 }
-  
+.images{
+  float:left;
+  height: 200px;
+}  
+
+.images > img {
+  height: 100%;
+}

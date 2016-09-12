@@ -35,7 +35,7 @@ function displayMusicianInfo() {
       personImage.addClass('imageToChange');
       // append the p variable to the gifDiv variable
        gifDiv.append(p);
-       // append the personImage variable to the gifDiv variable
+       // append the personImage variable to the gifDiv variable(to the dynamically created div)
       gifDiv.append(personImage)
       // append the gifDiv variable to the element with an id of musicianView
       $('#musicianView').append(gifDiv);
